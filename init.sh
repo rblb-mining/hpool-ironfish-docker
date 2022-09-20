@@ -75,7 +75,7 @@ unzip miner.zip
 cd linux
 yq -yi ".minerName = \"$MINER_NAME\"" config.yaml
 yq -yi '.proxy.url = "http://127.0.0.1:9190"' config.yaml
-yq -yi '.url = "http://127.0.0.1:9190"' config.yaml
+yq -yi '.url.proxy = "http://127.0.0.1:9190"' config.yaml
 yq -yi ".apiKey = \"$HPOOLKEY\"" config.yaml
 
 ./hpool-miner-ironfish-cuda
