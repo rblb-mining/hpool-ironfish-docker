@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+
 
 if [ "$API_KEY" = "" ];
 then
@@ -8,7 +8,7 @@ then
 		export API_KEY="$1"
 	else
 		echo "No API_KEY"
-		exit 1
+
 	fi
 
 fi
