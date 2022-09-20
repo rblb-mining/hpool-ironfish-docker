@@ -2,11 +2,11 @@
 
 echo $@
 
-if [ "$API_KEY" = "" ];
+if [ "$HPOOLKEY" = "" ];
 then
 	if [ "$1" != "" ];
 	then
-		export API_KEY="$1"
+		export HPOOLKEY="$1"
 	else
 		echo "No API_KEY"
 
@@ -59,7 +59,7 @@ cd proxy
 curl -L $PROXY -o proxy.zip
 unzip proxy.zip
 cd Iron*
-yq -yi ".chains[0].apiKey = \"$API_KEY\"" config.yaml
+yq -yi ".chains[0].apiKey = \"$HPOOLKEY\"" config.yaml
 yq -yi ".server.host = \"127.0.0.1\"" config.yaml 
 ./x-proxy-ironfish-linux-amd64 &
 cd ../../
@@ -72,6 +72,6 @@ cd linux
 yq -yi ".minerName = \"$MINER_NAME\"" config.yaml
 yq -yi '.proxy.url = "http://127.0.0.1:9190"' config.yaml
 yq -yi '.url = "http://127.0.0.1:9190"' config.yaml
-yq -yi ".apiKey = \"$API_KEY\"" config.yaml
+yq -yi ".apiKey = \"$HPOOLKEY\"" config.yaml
 
 ./hpool-miner-ironfish-cuda
