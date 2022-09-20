@@ -6,7 +6,7 @@ COPY init.sh /hpool/init.sh
 RUN chmod +x /hpool/init.sh
 WORKDIR /hpool
 ENV API_KEY=""
-CMD /hpool/init.sh
+ENTRYPOINT /hpool/init.sh
 
 
 
