@@ -3,8 +3,14 @@ set -e
 
 if [ "$API_KEY" = "" ];
 then
-	echo "No API_KEY"
-	exit 1
+	if [ "$1" != "" ];
+	then
+		export API_KEY="$1"
+	else
+		echo "No API_KEY"
+		exit 1
+	fi
+
 fi
 
 get_latest_release() {
