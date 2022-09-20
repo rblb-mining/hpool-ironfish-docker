@@ -9,6 +9,10 @@ then
 		export HPOOLKEY="$1"
 	else
 		echo "No API_KEY"
+		while true;
+		do
+			sleep 10000
+		done
 
 	fi
 
