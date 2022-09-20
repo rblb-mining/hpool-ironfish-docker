@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo $@
 
 if [ "$API_KEY" = "" ];
 then
